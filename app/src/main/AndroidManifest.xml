@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lcc.imusic">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:name=".config.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/play_icn_loved"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.LoginActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.SplashActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.setting.SettingActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.user.UserCenterActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.MusicPlayerActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.musician.MusicianDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.DownLoadActivity"
+            android:label="@string/download_manager"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.CommentActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.SearchActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <service
+            android:name=".service.MusicPlayService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".service.DownloadService"
+            android:enabled="true"
+            android:exported="true" />
+        <!--
+        <receiver
+            android:name=".service.MusicControllerReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.lcc.music.play" />
+                <action android:name="com.lcc.music.next" />
+                <action android:name="com.lcc.music.pause" />
+            </intent-filter>
+        </receiver>
+        -->
+        <activity android:name=".ui.RegisterActivity" />
+
+        <meta-data
+            android:name="DATABASE"
+            android:value="music_list.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="1" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="false" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.lcc.imusic" />
+
+        <activity android:name=".ui.user.EditUserActivity" />
+        <activity
+            android:name=".ui.musician.PublishTopicActivity"
+            android:label="添加话题" />
+        <activity android:name=".ui.musician.TopicActivity"></activity>
+    </application>
+
+</manifest>

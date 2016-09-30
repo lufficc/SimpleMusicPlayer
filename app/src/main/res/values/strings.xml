@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">爱创音乐</string>
+    <string name="action_settings">设置</string>
+    <string name="exit">退出</string>
+    <string name="footer_behavior" translatable="false">com.lcc.imusic.wiget.FooterBehavior</string>
+    <string name="playing_list">播放列表</string>
+    <string name="search">搜索</string>
+
+
+    <string name="loading">正在加载…</string>
+    <string name="error">出错了</string>
+    <string name="retry">轻触屏幕重试</string>
+    <string name="empty">啥也没有</string>
+    <string name="download_manager">下载管理</string>
+    <string name="edit_profile">编辑资料</string>
+</resources>
