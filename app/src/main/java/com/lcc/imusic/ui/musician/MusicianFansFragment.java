@@ -24,7 +24,7 @@ import com.lcc.imusic.bean.Msg;
 import com.lcc.imusic.manager.NetManager_;
 import com.lcc.imusic.wiget.StateLayout;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,18 +35,18 @@ import retrofit2.Response;
  */
 public class MusicianFansFragment extends AttachFragment implements LoadMoreAdapter.LoadMoreListener, OnItemLongClickListener {
 
-    @Bind(R.id.stateLayout)
+    @BindView(R.id.stateLayout)
     StateLayout stateLayout;
 
-    @Bind(R.id.recyclerView)
+    @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
-    @Bind(R.id.refreshLayout)
+    @BindView(R.id.refreshLayout)
     SwipeRefreshLayout refreshLayout;
 
     ClubAdapter adapter;
 
-    @Bind(R.id.add_topic)
+    @BindView(R.id.add_topic)
     FloatingActionButton add_topic;
 
     public long musicianId;

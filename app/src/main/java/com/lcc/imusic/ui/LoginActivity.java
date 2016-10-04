@@ -16,26 +16,26 @@ import com.lcc.imusic.bean.Msg;
 import com.lcc.imusic.manager.NetManager_;
 import com.lcc.imusic.manager.UserManager;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
-    @Bind(R.id.username)
+    @BindView(R.id.username)
     EditText et_username;
 
-    @Bind(R.id.password)
+    @BindView(R.id.password)
     EditText et_password;
 
-    @Bind(R.id.login)
+    @BindView(R.id.login)
     Button bt_login;
 
-    @Bind(R.id.register)
+    @BindView(R.id.register)
     TextView register;
 
-    @Bind(R.id.forget)
+    @BindView(R.id.forget)
     TextView forget;
 
     @Override

@@ -22,13 +22,13 @@ import com.orhanobut.logger.Logger;
 
 import java.io.File;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MusicPlayerActivity extends MusicProgressCallActivity {
-    @Bind(R.id.musicPlayer)
+    @BindView(R.id.musicPlayer)
     MusicPlayerView musicPlayerView;
 
     private CurrentMusicProvider currentMusicProvider;

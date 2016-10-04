@@ -13,7 +13,7 @@ import com.lcc.imusic.model.CurrentMusicProviderImpl;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -101,13 +101,13 @@ public class SimpleMusicListAdapter extends LoadMoreAdapter<MusicItem> {
     }
 
     protected class MusicItemViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.music_display_name)
+        @BindView(R.id.music_display_name)
         TextView displayName;
 
-        @Bind(R.id.music_musician)
+        @BindView(R.id.music_musician)
         TextView musician;
 
-        @Bind(R.id.music_playing)
+        @BindView(R.id.music_playing)
         ImageView music_playing;
 
         public MusicItemViewHolder(View itemView) {

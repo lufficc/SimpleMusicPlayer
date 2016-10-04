@@ -13,7 +13,7 @@ import com.lcc.imusic.base.activity.BaseActivity;
 import com.lcc.imusic.bean.Msg;
 import com.lcc.imusic.manager.NetManager_;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -22,16 +22,16 @@ public class PublishTopicActivity extends BaseActivity {
 
     private long musicianId;
     private long topicId;
-    @Bind(R.id.topic_title)
+    @BindView(R.id.topic_title)
     EditText topicTitle;
 
-    @Bind(R.id.topic_content)
+    @BindView(R.id.topic_content)
     EditText topicContent;
 
-    @Bind(R.id.topic_publish)
+    @BindView(R.id.topic_publish)
     Button topicPublish;
 
-    @Bind(R.id.topic_progress)
+    @BindView(R.id.topic_progress)
     ProgressBar topic_progress;
 
     public static final int TYPE_PUBLISH = 0;

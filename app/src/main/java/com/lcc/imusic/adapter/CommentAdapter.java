@@ -11,7 +11,7 @@ import com.lcc.imusic.R;
 import com.lcc.imusic.bean.CommentItem;
 import com.lcc.imusic.manager.NetManager_;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -38,16 +38,16 @@ public class CommentAdapter extends LoadMoreAdapter<CommentItem> {
     }
 
     protected class Holder extends RecyclerView.ViewHolder {
-        @Bind(R.id.comment_avatar)
+        @BindView(R.id.comment_avatar)
         ImageView avatar;
 
-        @Bind(R.id.comment_username)
+        @BindView(R.id.comment_username)
         TextView username;
 
-        @Bind(R.id.comment_time)
+        @BindView(R.id.comment_time)
         TextView time;
 
-        @Bind(R.id.comment_content)
+        @BindView(R.id.comment_content)
         TextView content;
 
         public Holder(View itemView) {

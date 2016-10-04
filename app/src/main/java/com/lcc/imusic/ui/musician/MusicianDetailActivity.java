@@ -13,7 +13,7 @@ import com.lcc.imusic.bean.Msg;
 import com.lcc.imusic.bean.MusicianItem;
 import com.lcc.imusic.manager.NetManager_;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,10 +23,10 @@ import retrofit2.Response;
  */
 public class MusicianDetailActivity extends UserActivity {
 
-    @Bind(R.id.viewPage)
+    @BindView(R.id.viewPage)
     ViewPager viewPager;
 
-    @Bind(R.id.tabLayout)
+    @BindView(R.id.tabLayout)
     TabLayout tabLayout;
 
     private long id;

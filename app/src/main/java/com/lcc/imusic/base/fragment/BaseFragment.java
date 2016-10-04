@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * Created by lcc_luffy on 2016/1/28.
@@ -19,18 +20,20 @@ public abstract class BaseFragment extends Fragment {
 
     protected Context context;
 
+    private Unbinder unbind;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         rootView = LayoutInflater.from(context).inflate(getLayoutId(), null);
-        ButterKnife.bind(this, rootView);
+        unbind = ButterKnife.bind(this, rootView);
         initialize(savedInstanceState);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
+        unbind.unbind();
     }
 
     @Nullable

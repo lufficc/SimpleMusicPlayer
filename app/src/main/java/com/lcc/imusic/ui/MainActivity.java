@@ -6,14 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.lcc.imusic.R;
 import com.lcc.imusic.adapter.FragmentAdapter;
@@ -32,22 +31,26 @@ import com.lcc.imusic.ui.home.RemoteMusicFragment;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
+import butterknife.BindViews;
+import butterknife.OnCheckedChanged;
 
-public class MainActivity extends PlayBarActivity implements AccountDelegate.AccountListener {
-    @Bind(R.id.tabLayout)
-    SmartTabLayout tabLayout;
+public class MainActivity extends PlayBarActivity implements AccountDelegate.AccountListener, ViewPager.OnPageChangeListener {
+    @BindView(R.id.actionbar_buttons)
+    RadioGroup actionBarButtonGroup;
 
-    @Bind(R.id.viewPager)
+    @BindView(R.id.viewPager)
     ViewPager viewPager;
 
     private AccountDelegate accountDelegate;
+
+    @BindViews({R.id.actionbar_music, R.id.actionbar_friends, R.id.actionbar_discover})
+    List<RadioButton> actionBarButtons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,26 +69,8 @@ public class MainActivity extends PlayBarActivity implements AccountDelegate.Acc
         FragmentAdapter adapter = new FragmentAdapter(getSupportFragmentManager(),
                 new MusicianListFragment(), new RemoteMusicFragment(), new MusicNewsFragment());
         viewPager.setAdapter(adapter);
-        tabLayout.setCustomTabView(new SmartTabLayout.TabProvider() {
-            @Override
-            public View createTabView(ViewGroup container, int position, PagerAdapter adapter) {
-                ImageView imageView = (ImageView) getLayoutInflater()
-                        .inflate(R.layout.tab_icon_imageview, container, false);
-                switch (position) {
-                    case 0:
-                        imageView.setImageResource(R.mipmap.actionbar_friends_selected);
-                        break;
-                    case 1:
-                        imageView.setImageResource(R.mipmap.actionbar_music_selected);
-                        break;
-                    case 2:
-                        imageView.setImageResource(R.mipmap.actionbar_discover_selected);
-                        break;
-                }
-                return imageView;
-            }
-        });
-        tabLayout.setViewPager(viewPager);
+        actionBarButtons.get(0).setChecked(true);
+        viewPager.addOnPageChangeListener(this);
         if (!MusicPlayService.HAS_STATED) {
             Intent intent = new Intent(this, MusicPlayService.class);
             startService(intent);
@@ -179,10 +164,8 @@ public class MainActivity extends PlayBarActivity implements AccountDelegate.Acc
                     musicServiceBind.volumeUp();
                 break;
             case 7:
-                if(!CurrentMusicProviderImpl.getMusicProvider().provideMusics().isEmpty())
-                {
-                    for (MusicItem item : CurrentMusicProviderImpl.getMusicProvider().provideMusics())
-                    {
+                if (!CurrentMusicProviderImpl.getMusicProvider().provideMusics().isEmpty()) {
+                    for (MusicItem item : CurrentMusicProviderImpl.getMusicProvider().provideMusics()) {
                         DlBean<MusicItem> dlBean = new DlBean<>(item.data, item.title.trim() + "-" + item.artist.trim() + ".mp3", item);
                         DownLoadHelper.get().enqueue(dlBean);
                     }
@@ -202,5 +185,30 @@ public class MainActivity extends PlayBarActivity implements AccountDelegate.Acc
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        actionBarButtons.get(position).setChecked(true);
+
+    }
+
+    @OnCheckedChanged({R.id.actionbar_music, R.id.actionbar_friends, R.id.actionbar_discover})
+    public void onActionbarCheck(RadioButton button, boolean check)
+    {
+        if (check)
+        {
+            int index = actionBarButtons.indexOf(button);
+            viewPager.setCurrentItem(index);
+        }
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 }

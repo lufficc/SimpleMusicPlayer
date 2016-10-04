@@ -11,7 +11,7 @@ import com.lcc.imusic.R;
 import com.lcc.imusic.bean.Club;
 import com.lcc.imusic.manager.NetManager_;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -47,26 +47,26 @@ public class ClubAdapter extends LoadMoreAdapter<Club.TopicItem> {
 
     protected class Holder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.club_name)
+        @BindView(R.id.club_name)
         TextView clubName;
 
-        @Bind(R.id.club_text)
+        @BindView(R.id.club_text)
         TextView clubText;
 
-        @Bind(R.id.club_viewCount)
+        @BindView(R.id.club_viewCount)
         TextView club_viewCount;
 
-        @Bind(R.id.club_replyCount)
+        @BindView(R.id.club_replyCount)
         TextView club_replyCount;
 
-        @Bind(R.id.club_time)
+        @BindView(R.id.club_time)
         TextView club_time;
 
-        @Bind(R.id.auth_name)
+        @BindView(R.id.auth_name)
         TextView auth_name;
 
 
-        @Bind(R.id.club_avatar)
+        @BindView(R.id.club_avatar)
         ImageView club_avatar;
 
         Holder(View itemView) {

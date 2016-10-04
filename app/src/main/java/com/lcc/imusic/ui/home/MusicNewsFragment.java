@@ -17,19 +17,19 @@ import com.lcc.imusic.wiget.StateLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * Created by lcc_luffy on 2016/3/8.
  */
 public class MusicNewsFragment extends AttachFragment implements OnRefreshListener {
-    @Bind(R.id.stateLayout)
+    @BindView(R.id.stateLayout)
     StateLayout stateLayout;
 
-    @Bind(R.id.recyclerView)
+    @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
-    @Bind(R.id.refreshLayout)
+    @BindView(R.id.refreshLayout)
     SwipeRefreshLayout refreshLayout;
 
     MusicNewsAdapter adapter;

@@ -13,7 +13,7 @@ import com.lcc.imusic.bean.MusicianItem;
 import java.util.Locale;
 import java.util.Random;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -41,13 +41,13 @@ public class MusicianRankAdapter extends LoadMoreAdapter<MusicianItem> {
     }
 
     protected class Holder extends RecyclerView.ViewHolder {
-        @Bind(R.id.musicianRank_avatar)
+        @BindView(R.id.musicianRank_avatar)
         ImageView avatar;
 
-        @Bind(R.id.musicianRank_title)
+        @BindView(R.id.musicianRank_title)
         TextView title;
 
-        @Bind(R.id.musicianRank_subtitle)
+        @BindView(R.id.musicianRank_subtitle)
         TextView subtitle;
 
 

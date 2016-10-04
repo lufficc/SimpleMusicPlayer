@@ -21,19 +21,39 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
-            <com.ogaclejapan.smarttablayout.SmartTabLayout
-                android:id="@+id/tabLayout"
+            <RadioGroup
+                android:id="@+id/actionbar_buttons"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="?attr/actionBarSize"
                 android:layout_gravity="center_horizontal"
-                app:stl_clickable="true"
-                app:stl_distributeEvenly="true"
-                app:stl_dividerColor="@android:color/transparent"
-                app:stl_dividerThickness="0dp"
-                app:stl_indicatorColor="@android:color/transparent"
-                app:stl_indicatorThickness="0dp"
-                app:stl_underlineColor="@android:color/transparent"
-                app:stl_underlineThickness="0dp" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/actionbar_music"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:button="@drawable/selector_actionbar_music"
+                    tools:button="@mipmap/actionbar_music_prs"
+                    tools:checked="true" />
+
+                <RadioButton
+                    android:id="@+id/actionbar_friends"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:button="@drawable/selector_actionbar_music"
+                    tools:button="@mipmap/actionbar_music_prs" />
+
+                <RadioButton
+                    android:id="@+id/actionbar_discover"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:button="@drawable/selector_actionbar_music"
+                    tools:button="@mipmap/actionbar_music_prs" />
+            </RadioGroup>
         </android.support.v7.widget.Toolbar>
 
 

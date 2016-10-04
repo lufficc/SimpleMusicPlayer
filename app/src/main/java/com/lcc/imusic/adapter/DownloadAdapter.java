@@ -10,7 +10,7 @@ import com.lcc.imusic.R;
 import com.lcc.imusic.bean.DlBean;
 import com.lcc.imusic.bean.MusicItem;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -31,13 +31,13 @@ public class DownloadAdapter extends SimpleAdapter<DownloadAdapter.Holder, DlBea
 
     protected class Holder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.download_title)
+        @BindView(R.id.download_title)
         TextView title;
 
-        @Bind(R.id.download_subtitle)
+        @BindView(R.id.download_subtitle)
         TextView subtitle;
 
-        @Bind(R.id.download_progress)
+        @BindView(R.id.download_progress)
         ProgressBar progressBar;
 
         public Holder(View itemView) {

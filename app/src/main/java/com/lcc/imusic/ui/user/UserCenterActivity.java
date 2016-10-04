@@ -15,17 +15,17 @@ import com.lcc.imusic.adapter.FragmentAdapter;
 import com.lcc.imusic.base.activity.UserActivity;
 import com.lcc.imusic.manager.UserManager;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * Created by lcc_luffy on 2016/3/8.
  */
 public class UserCenterActivity extends UserActivity {
 
-    @Bind(R.id.viewPage)
+    @BindView(R.id.viewPage)
     ViewPager viewPager;
 
-    @Bind(R.id.tabLayout)
+    @BindView(R.id.tabLayout)
     TabLayout tabLayout;
 
 

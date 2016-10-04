@@ -15,32 +15,32 @@ import com.lcc.imusic.manager.UserManager;
 import com.lcc.imusic.wiget.StateLayout;
 import com.orhanobut.logger.Logger;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class EditUserActivity extends BaseActivity {
 
-    @Bind(R.id.stateLayout)
+    @BindView(R.id.stateLayout)
     StateLayout stateLayout;
 
-    @Bind(R.id.safe_ques)
+    @BindView(R.id.safe_ques)
     EditText et_safe_ques;
 
-    @Bind(R.id.safe_ans)
+    @BindView(R.id.safe_ans)
     EditText et_safe_ans;
 
-    @Bind(R.id.real_name)
+    @BindView(R.id.real_name)
     EditText realName;
 
-    @Bind(R.id.phone_number)
+    @BindView(R.id.phone_number)
     EditText phoneNum;
 
-    @Bind(R.id.email_address)
+    @BindView(R.id.email_address)
     EditText emailAddress;
 
-    @Bind(R.id.update_me)
+    @BindView(R.id.update_me)
     Button updateMe;
 
     @Override

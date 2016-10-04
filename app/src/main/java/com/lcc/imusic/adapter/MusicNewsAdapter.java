@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide;
 import com.lcc.imusic.R;
 import com.lcc.imusic.bean.MusicNews;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -31,13 +31,13 @@ public class MusicNewsAdapter extends SimpleAdapter<MusicNewsAdapter.Holder, Mus
 
 
     class Holder extends RecyclerView.ViewHolder {
-        @Bind(R.id.musicNews_pic)
+        @BindView(R.id.musicNews_pic)
         public ImageView picture;
 
-        @Bind(R.id.musicNews_title)
+        @BindView(R.id.musicNews_title)
         public TextView title;
 
-        @Bind(R.id.musicNews_subtitle)
+        @BindView(R.id.musicNews_subtitle)
         public TextView description;
 
         public Holder(View itemView) {

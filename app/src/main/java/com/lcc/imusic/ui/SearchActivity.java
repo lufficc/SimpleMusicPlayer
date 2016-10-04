@@ -10,18 +10,18 @@ import com.lcc.imusic.R;
 import com.lcc.imusic.base.activity.BaseActivity;
 import com.lcc.imusic.wiget.StateLayout;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * Created by lcc_luffy on 2016/3/26.
  */
 public class SearchActivity extends BaseActivity {
 
-    @Bind(R.id.stateLayout)
+    @BindView(R.id.stateLayout)
     StateLayout stateLayout;
 
 
-    @Bind(R.id.searchView)
+    @BindView(R.id.searchView)
     SearchView searchView;
 
     @Override

@@ -10,17 +10,17 @@ import com.lcc.imusic.TestFragment;
 import com.lcc.imusic.adapter.FragmentAdapter;
 import com.lcc.imusic.base.fragment.AttachFragment;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * Created by lcc_luffy on 2016/3/23.
  */
 public class MusicFragment extends AttachFragment {
 
-    @Bind(R.id.viewPage)
+    @BindView(R.id.viewPage)
     ViewPager viewPager;
 
-    @Bind(R.id.tabLayout)
+    @BindView(R.id.tabLayout)
     TabLayout tabLayout;
 
     @Override

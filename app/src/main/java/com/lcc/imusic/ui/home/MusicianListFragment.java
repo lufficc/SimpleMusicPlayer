@@ -22,7 +22,7 @@ import com.lcc.imusic.wiget.StateLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -32,14 +32,14 @@ import retrofit2.Response;
  */
 public class MusicianListFragment extends AttachFragment implements LoadMoreAdapter.LoadMoreListener {
 
-    @Bind(R.id.stateLayout)
+    @BindView(R.id.stateLayout)
     StateLayout stateLayout;
 
 
-    @Bind(R.id.refreshLayout)
+    @BindView(R.id.refreshLayout)
     SwipeRefreshLayout refreshLayout;
 
-    @Bind(R.id.recyclerView)
+    @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
     MusicianRankAdapter musicianRankAdapter;
 

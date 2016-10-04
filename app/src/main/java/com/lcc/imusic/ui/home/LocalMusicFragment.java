@@ -13,7 +13,7 @@ import com.lcc.imusic.adapter.SimpleMusicListAdapter;
 import com.lcc.imusic.base.fragment.AttachFragment;
 import com.lcc.imusic.model.LocalMusicProvider;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 
 /**
@@ -21,10 +21,10 @@ import butterknife.Bind;
  */
 public class LocalMusicFragment extends AttachFragment {
 
-    @Bind(R.id.recyclerView)
+    @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
-    @Bind(R.id.refreshLayout)
+    @BindView(R.id.refreshLayout)
     SwipeRefreshLayout refreshLayout;
 
     SimpleMusicListAdapter simpleMusicListAdapter;

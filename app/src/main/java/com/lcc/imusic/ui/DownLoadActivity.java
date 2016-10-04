@@ -17,25 +17,25 @@ import com.lcc.imusic.service.DownloadService;
 
 import java.io.File;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * Created by lcc_luffy on 2016/3/23.
  */
 public class DownLoadActivity extends BaseActivity implements DownloadService.DownLoadEvent<MusicItem> {
-    @Bind(R.id.recyclerView)
+    @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
-    @Bind(R.id.download_title)
+    @BindView(R.id.download_title)
     TextView title;
 
-    @Bind(R.id.download_subtitle)
+    @BindView(R.id.download_subtitle)
     TextView subtitle;
 
-    @Bind(R.id.download_percent)
+    @BindView(R.id.download_percent)
     TextView percent;
 
-    @Bind(R.id.download_progress)
+    @BindView(R.id.download_progress)
     ProgressBar progressBar;
 
     DownloadAdapter downloadAdapter;

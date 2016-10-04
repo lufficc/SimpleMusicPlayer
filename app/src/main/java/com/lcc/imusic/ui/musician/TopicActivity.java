@@ -22,7 +22,7 @@ import com.lcc.imusic.utils.Json;
 import com.lcc.imusic.wiget.StateLayout;
 import com.orhanobut.logger.Logger;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,40 +30,40 @@ import retrofit2.Response;
 public class TopicActivity extends BaseActivity implements LoadMoreAdapter.LoadMoreListener,
         SwipeRefreshLayout.OnRefreshListener {
 
-    @Bind(R.id.club_name)
+    @BindView(R.id.club_name)
     TextView clubName;
 
-    @Bind(R.id.club_text)
+    @BindView(R.id.club_text)
     TextView clubText;
 
-    @Bind(R.id.club_viewCount)
+    @BindView(R.id.club_viewCount)
     TextView club_viewCount;
 
-    @Bind(R.id.club_replyCount)
+    @BindView(R.id.club_replyCount)
     TextView club_replyCount;
 
-    @Bind(R.id.club_time)
+    @BindView(R.id.club_time)
     TextView club_time;
 
-    @Bind(R.id.auth_name)
+    @BindView(R.id.auth_name)
     TextView auth_name;
 
 
-    @Bind(R.id.club_avatar)
+    @BindView(R.id.club_avatar)
     ImageView club_avatar;
 
 
-    @Bind(R.id.stateLayout)
+    @BindView(R.id.stateLayout)
     StateLayout stateLayout;
 
-    @Bind(R.id.recyclerView)
+    @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
-    @Bind(R.id.refreshLayout)
+    @BindView(R.id.refreshLayout)
     SwipeRefreshLayout refreshLayout;
 
 
-    @Bind(R.id.collapsingToolbarLayout)
+    @BindView(R.id.collapsingToolbarLayout)
     CollapsingToolbarLayout collapsingToolbarLayout;
 
 

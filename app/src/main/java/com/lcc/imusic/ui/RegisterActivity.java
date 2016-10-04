@@ -11,28 +11,28 @@ import com.lcc.imusic.R;
 import com.lcc.imusic.base.activity.BaseActivity;
 import com.lcc.imusic.manager.NetManager_;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterActivity extends BaseActivity {
-    @Bind(R.id.username)
+    @BindView(R.id.username)
     EditText et_username;
 
-    @Bind(R.id.password)
+    @BindView(R.id.password)
     EditText et_password;
 
-    @Bind(R.id.password_confirm)
+    @BindView(R.id.password_confirm)
     EditText et_password_confirm;
 
-    @Bind(R.id.safe_ques)
+    @BindView(R.id.safe_ques)
     EditText et_safe_ques;
 
-    @Bind(R.id.safe_ans)
+    @BindView(R.id.safe_ans)
     EditText et_safe_ans;
 
-    @Bind(R.id.register)
+    @BindView(R.id.register)
     Button bt_register;
 
     @Override

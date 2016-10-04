@@ -10,10 +10,10 @@ import com.lcc.imusic.R;
 import com.lcc.imusic.base.activity.BaseActivity;
 import com.lcc.imusic.model.LocalMusicProvider;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 public class SplashActivity extends BaseActivity {
-    @Bind(R.id.splash_image)
+    @BindView(R.id.splash_image)
     ImageView splash_image;
 
     @Override

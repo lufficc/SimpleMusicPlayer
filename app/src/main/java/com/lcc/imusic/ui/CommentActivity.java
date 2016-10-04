@@ -37,7 +37,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -46,22 +46,22 @@ import retrofit2.Response;
  * Created by lcc_luffy on 2016/3/24.
  */
 public class CommentActivity extends BaseActivity implements LoadMoreAdapter.LoadMoreListener, SwipeRefreshLayout.OnRefreshListener {
-    @Bind(R.id.stateLayout)
+    @BindView(R.id.stateLayout)
     StateLayout stateLayout;
 
-    @Bind(R.id.refreshLayout)
+    @BindView(R.id.refreshLayout)
     SwipeRefreshLayout refreshLayout;
 
-    @Bind(R.id.comment_progress)
+    @BindView(R.id.comment_progress)
     ProgressBar comment_progress;
 
-    @Bind(R.id.recyclerView)
+    @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
-    @Bind(R.id.commentEditText)
+    @BindView(R.id.commentEditText)
     EditText commentEditView;
 
-    @Bind(R.id.commentSubmit)
+    @BindView(R.id.commentSubmit)
     Button commentSubmitBtn;
 
     private CommentAdapter adapter;

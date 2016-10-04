@@ -25,35 +25,35 @@ import com.orhanobut.logger.Logger;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * Created by lcc_luffy on 2016/3/23.
  */
 public abstract class PlayBarActivity extends MusicProgressCallActivity
         implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
-    @Bind(R.id.playBar_wrap)
+    @BindView(R.id.playBar_wrap)
     View playBar_wrap;
 
-    @Bind(R.id.playBar_cover)
+    @BindView(R.id.playBar_cover)
     ImageView playBarCover;
 
-    @Bind(R.id.progress)
+    @BindView(R.id.progress)
     ProgressBar progressBar;
 
-    @Bind(R.id.playBar_title)
+    @BindView(R.id.playBar_title)
     TextView playBarTitle;
 
-    @Bind(R.id.playBar_subtitle)
+    @BindView(R.id.playBar_subtitle)
     TextView playBarSubtitle;
 
-    @Bind(R.id.playBar_playList)
+    @BindView(R.id.playBar_playList)
     ImageView playBarPlayList;
 
-    @Bind(R.id.playBar_playToggle)
+    @BindView(R.id.playBar_playToggle)
     CheckBox playBarPlayToggle;
 
-    @Bind(R.id.playBar_next)
+    @BindView(R.id.playBar_next)
     ImageView playBarPlayNext;
 
     protected CurrentMusicProvider currentMusicProvider;

@@ -14,31 +14,31 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.lcc.imusic.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * Created by lcc_luffy on 2016/3/23.
  */
 public abstract class UserActivity extends MusicPlayCallActivity {
-    @Bind(R.id.appBarLayout)
+    @BindView(R.id.appBarLayout)
     protected AppBarLayout appBarLayout;
 
-    @Bind(R.id.collapsingToolbarLayout)
+    @BindView(R.id.collapsingToolbarLayout)
     protected CollapsingToolbarLayout collapsingToolbarLayout;
 
-    @Bind(R.id.username)
+    @BindView(R.id.username)
     protected TextView username_tv;
 
-    @Bind(R.id.avatar)
+    @BindView(R.id.avatar)
     protected ImageView avatar_iv;
 
-    @Bind(R.id.user_bg)
+    @BindView(R.id.user_bg)
     protected ImageView user_bg;
 
-    @Bind(R.id.userInfoWrapper)
+    @BindView(R.id.userInfoWrapper)
     protected LinearLayout linearLayout;
 
-    @Bind(R.id.songsCount)
+    @BindView(R.id.songsCount)
     protected TextView songsCount;
 
     private String username;

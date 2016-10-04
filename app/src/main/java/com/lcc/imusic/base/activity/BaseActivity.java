@@ -12,24 +12,27 @@ import android.widget.Toast;
 import com.lcc.imusic.R;
 import com.lcc.imusic.ui.MainActivity;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 
 /**
  * Created by lcc_luffy on 2016/3/5.
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     @Nullable
     protected Toolbar toolbar;
     protected ActionBar actionBar;
 
+    private Unbinder unbind;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-        ButterKnife.bind(this);
+        unbind = ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
@@ -52,7 +55,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
+        unbind.unbind();
     }
 
     @Override
