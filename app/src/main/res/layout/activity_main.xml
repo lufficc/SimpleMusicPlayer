@@ -8,6 +8,14 @@
     android:fitsSystemWindows="true"
     tools:context=".ui.MainActivity">
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <include layout="@layout/include_playbar" />
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
@@ -27,14 +35,17 @@
                 android:layout_height="?attr/actionBarSize"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:showDividers="beginning|middle|end">
 
                 <RadioButton
                     android:id="@+id/actionbar_music"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:button="@mipmap/actionbar_friends_selected"
+                    android:button="@drawable/selector_actionbar_friends"
                     tools:button="@mipmap/actionbar_friends_selected"
                     tools:checked="true" />
 
@@ -42,28 +53,24 @@
                     android:id="@+id/actionbar_friends"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:button="@mipmap/actionbar_music_selected"
+                    android:button="@drawable/selector_actionbar_music"
                     tools:button="@mipmap/actionbar_music_selected" />
 
                 <RadioButton
                     android:id="@+id/actionbar_discover"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:button="@mipmap/actionbar_discover_selected"
+                    android:button="@drawable/selector_actionbar_musicians"
                     tools:button="@mipmap/actionbar_discover_selected" />
             </RadioGroup>
         </android.support.v7.widget.Toolbar>
 
 
     </android.support.design.widget.AppBarLayout>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-    <include layout="@layout/include_playbar" />
 </android.support.design.widget.CoordinatorLayout>
