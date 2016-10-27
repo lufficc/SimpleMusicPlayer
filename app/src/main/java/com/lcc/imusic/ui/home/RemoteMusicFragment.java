@@ -18,7 +18,7 @@ import com.lcc.imusic.bean.MusicItem;
 import com.lcc.imusic.bean.SongsBean;
 import com.lcc.imusic.manager.NetManager_;
 import com.lcc.imusic.model.RemoteMusicProvider;
-import com.lcc.imusic.wiget.StateLayout;
+import com.lufficc.stateLayout.StateLayout;
 
 import java.util.List;
 

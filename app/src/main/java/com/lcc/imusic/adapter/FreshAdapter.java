@@ -5,7 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.lcc.imusic.wiget.StateLayout;
+import com.lufficc.stateLayout.StateLayout;
+
 
 /**
  * Created by lcc_luffy on 2016/3/27.

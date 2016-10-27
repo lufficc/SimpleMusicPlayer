@@ -10,7 +10,7 @@
 
     <include layout="@layout/include_appbarlayout" />
 
-    <com.lcc.imusic.wiget.StateLayout
+    <com.lufficc.stateLayout.StateLayout
         android:id="@+id/stateLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </android.support.v4.widget.SwipeRefreshLayout>
-    </com.lcc.imusic.wiget.StateLayout>
+    </com.lufficc.stateLayout.StateLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

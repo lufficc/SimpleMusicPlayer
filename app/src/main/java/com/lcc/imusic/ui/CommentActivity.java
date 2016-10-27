@@ -31,7 +31,7 @@ import com.lcc.imusic.bean.CommentItem;
 import com.lcc.imusic.bean.Msg;
 import com.lcc.imusic.manager.NetManager_;
 import com.lcc.imusic.manager.UserManager;
-import com.lcc.imusic.wiget.StateLayout;
+import com.lufficc.stateLayout.StateLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

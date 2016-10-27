@@ -10,15 +10,12 @@ import android.view.View;
 import com.lcc.imusic.R;
 import com.lcc.imusic.manager.UserManager;
 import com.lcc.imusic.ui.LoginActivity;
-import com.lcc.imusic.ui.setting.SettingActivity;
 import com.lcc.imusic.ui.user.UserCenterActivity;
-import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.holder.ImageHolder;
-import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
@@ -65,9 +62,7 @@ public class AccountDelegate {
                 .build();
 
 
-        final PrimaryDrawerItem setting = new PrimaryDrawerItem()
-                .withIcon(FontAwesome.Icon.faw_cogs)
-                .withName("设置");
+
         drawer = new DrawerBuilder()
                 .withToolbar(toolbar)
                 .withActivity(activity)
@@ -76,17 +71,12 @@ public class AccountDelegate {
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                        if (drawerItem == setting) {
-                            activity.startActivity(new Intent(activity, SettingActivity.class));
-                            drawer.closeDrawer();
-                            return true;
-                        }
+
                         return accountListener.onDrawerMenuSelected(view, position, drawerItem);
                     }
                 })
                 .withAccountHeader(header)
                 .build();
-        drawer.addStickyFooterItem(setting);
         drawer.getDrawerLayout().setFitsSystemWindows(true);
         drawer.getSlider().setFitsSystemWindows(true);
     }

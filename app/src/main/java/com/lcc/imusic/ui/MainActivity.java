@@ -1,7 +1,5 @@
 package com.lcc.imusic.ui;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -102,9 +100,6 @@ public class MainActivity extends PlayBarActivity implements AccountDelegate.Acc
         list.add(new PrimaryDrawerItem().withName("下载管理").withIcon(FontAwesome.Icon.faw_cloud_download));
         list.add(new PrimaryDrawerItem().withName("退出登录").withIcon(FontAwesome.Icon.faw_sign_out));
         list.add(new PrimaryDrawerItem().withName("退出").withIcon(FontAwesome.Icon.faw_sign_out));
-        list.add(new PrimaryDrawerItem().withName("减小音量").withIcon(FontAwesome.Icon.faw_sign_out));
-        list.add(new PrimaryDrawerItem().withName("增大音量").withIcon(FontAwesome.Icon.faw_sign_out));
-        list.add(new PrimaryDrawerItem().withName("下载所有").withIcon(FontAwesome.Icon.faw_sign_out));
 
         return list;
     }
@@ -131,9 +126,6 @@ public class MainActivity extends PlayBarActivity implements AccountDelegate.Acc
         accountDelegate.close();
         switch (position) {
             case 1:
-                ClipboardManager clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-                clipboardManager.setPrimaryClip(ClipData.newPlainText("token", UserManager.token()));
-                toast(UserManager.token());
                 break;
             case 2:
                 startActivity(new Intent(this, DownLoadActivity.class));

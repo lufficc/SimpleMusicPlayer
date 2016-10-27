@@ -22,7 +22,7 @@ import com.lcc.imusic.base.fragment.AttachFragment;
 import com.lcc.imusic.bean.Club;
 import com.lcc.imusic.bean.Msg;
 import com.lcc.imusic.manager.NetManager_;
-import com.lcc.imusic.wiget.StateLayout;
+import com.lufficc.stateLayout.StateLayout;
 
 import butterknife.BindView;
 import retrofit2.Call;
@@ -71,7 +71,6 @@ public class MusicianFansFragment extends AttachFragment implements LoadMoreAdap
                 getData(1);
             }
         });
-        stateLayout.setEmptyClickNotice("轻触屏幕添加");
         stateLayout.setEmptyAction(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

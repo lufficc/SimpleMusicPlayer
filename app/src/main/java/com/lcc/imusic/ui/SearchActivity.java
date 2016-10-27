@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.lcc.imusic.R;
 import com.lcc.imusic.base.activity.BaseActivity;
-import com.lcc.imusic.wiget.StateLayout;
+import com.lufficc.stateLayout.StateLayout;
 
 import butterknife.BindView;
 

@@ -1,15 +1,11 @@
 package com.lcc.imusic.ui.musician;
 
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.lcc.imusic.R;
 import com.lcc.imusic.adapter.LoadMoreAdapter;
 import com.lcc.imusic.adapter.TopicReplyAdapter;
@@ -19,7 +15,7 @@ import com.lcc.imusic.bean.Msg;
 import com.lcc.imusic.bean.TopicReply;
 import com.lcc.imusic.manager.NetManager_;
 import com.lcc.imusic.utils.Json;
-import com.lcc.imusic.wiget.StateLayout;
+import com.lufficc.stateLayout.StateLayout;
 import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
@@ -30,27 +26,7 @@ import retrofit2.Response;
 public class TopicActivity extends BaseActivity implements LoadMoreAdapter.LoadMoreListener,
         SwipeRefreshLayout.OnRefreshListener {
 
-    @BindView(R.id.club_name)
-    TextView clubName;
 
-    @BindView(R.id.club_text)
-    TextView clubText;
-
-    @BindView(R.id.club_viewCount)
-    TextView club_viewCount;
-
-    @BindView(R.id.club_replyCount)
-    TextView club_replyCount;
-
-    @BindView(R.id.club_time)
-    TextView club_time;
-
-    @BindView(R.id.auth_name)
-    TextView auth_name;
-
-
-    @BindView(R.id.club_avatar)
-    ImageView club_avatar;
 
 
     @BindView(R.id.stateLayout)
@@ -61,10 +37,6 @@ public class TopicActivity extends BaseActivity implements LoadMoreAdapter.LoadM
 
     @BindView(R.id.refreshLayout)
     SwipeRefreshLayout refreshLayout;
-
-
-    @BindView(R.id.collapsingToolbarLayout)
-    CollapsingToolbarLayout collapsingToolbarLayout;
 
 
     private long topicId;
@@ -86,7 +58,6 @@ public class TopicActivity extends BaseActivity implements LoadMoreAdapter.LoadM
         adapter.setLoadMoreListener(this);
         recyclerView.setAdapter(adapter);
 
-        collapsingToolbarLayout.setContentScrim(null);
 
         stateLayout.setErrorAndEmptyAction(new View.OnClickListener() {
             @Override
@@ -99,16 +70,7 @@ public class TopicActivity extends BaseActivity implements LoadMoreAdapter.LoadM
     }
 
     private void bind(Club.TopicItem topicItem) {
-        clubName.setText(topicItem.title);
-        clubText.setText(topicItem.text);
-        club_replyCount.setText("回复:" + topicItem.replycount);
-        club_viewCount.setText("查看次数:" + topicItem.viewscount);
-        club_time.setText(topicItem.addtime);
-        auth_name.setText(topicItem.authorNmae);
 
-        Glide.with(this)
-                .load(NetManager_.DOMAIN + topicItem.avatar)
-                .into(club_avatar);
     }
 
     public void getTopicReplies(final int pageNum) {

@@ -34,8 +34,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:button="@drawable/selector_actionbar_music"
-                    tools:button="@mipmap/actionbar_music_prs"
+                    android:button="@mipmap/actionbar_friends_selected"
+                    tools:button="@mipmap/actionbar_friends_selected"
                     tools:checked="true" />
 
                 <RadioButton
@@ -43,16 +43,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:button="@drawable/selector_actionbar_music"
-                    tools:button="@mipmap/actionbar_music_prs" />
+                    android:button="@mipmap/actionbar_music_selected"
+                    tools:button="@mipmap/actionbar_music_selected" />
 
                 <RadioButton
                     android:id="@+id/actionbar_discover"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:button="@drawable/selector_actionbar_music"
-                    tools:button="@mipmap/actionbar_music_prs" />
+                    android:button="@mipmap/actionbar_discover_selected"
+                    tools:button="@mipmap/actionbar_discover_selected" />
             </RadioGroup>
         </android.support.v7.widget.Toolbar>
 

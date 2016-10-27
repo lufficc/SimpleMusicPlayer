@@ -12,7 +12,7 @@ import com.lcc.imusic.bean.LoginBean;
 import com.lcc.imusic.bean.Msg;
 import com.lcc.imusic.manager.NetManager_;
 import com.lcc.imusic.manager.UserManager;
-import com.lcc.imusic.wiget.StateLayout;
+import com.lufficc.stateLayout.StateLayout;
 import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
@@ -91,7 +91,7 @@ public class EditUserActivity extends BaseActivity {
         emailAddress.setText(loginBean.mail);
     }
 
-    private ProgressDialog progressDialog;
+    private ProgressDialog progressDialog;      
 
     private void updateMe() {
         if (progressDialog == null) {

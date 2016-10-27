@@ -12,7 +12,7 @@ import com.lcc.imusic.R;
 import com.lcc.imusic.adapter.MusicNewsAdapter;
 import com.lcc.imusic.base.fragment.AttachFragment;
 import com.lcc.imusic.bean.MusicNews;
-import com.lcc.imusic.wiget.StateLayout;
+import com.lufficc.stateLayout.StateLayout;
 
 import java.util.ArrayList;
 import java.util.List;

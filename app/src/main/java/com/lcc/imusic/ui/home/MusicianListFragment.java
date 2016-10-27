@@ -17,7 +17,7 @@ import com.lcc.imusic.bean.MusicianItem;
 import com.lcc.imusic.bean.MusiciansBean;
 import com.lcc.imusic.manager.NetManager_;
 import com.lcc.imusic.ui.musician.MusicianDetailActivity;
-import com.lcc.imusic.wiget.StateLayout;
+import com.lufficc.stateLayout.StateLayout;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -18,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class NetManager_ {
     public static final String DOMAIN = "http://uestc.xyz:8080/api";
-    private static final String base_url = "http://uestc.xyz:8080/api/";
+    private static final String base_url = "http://202.115.12.53:8080/api/";
     private Retrofit retrofit;
 
     private static class ClassHolder {

@@ -7,14 +7,11 @@ import android.net.Uri;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.github.moduth.blockcanary.BlockCanary;
-import com.github.moduth.blockcanary.BlockCanaryContext;
 import com.lcc.imusic.service.MusicPlayService;
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader;
 import com.mikepenz.materialdrawer.util.DrawerImageLoader;
 import com.orhanobut.logger.Logger;
 import com.orm.SugarContext;
-import com.squareup.leakcanary.LeakCanary;
 
 /**
  * Created by lcc_luffy on 2016/3/5.
@@ -27,8 +24,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         SugarContext.init(this);
-        LeakCanary.install(this);
-        BlockCanary.install(this, new AppBlockCanaryContext()).start();
+
         app = this;
         Logger.init("main");
         DrawerImageLoader.init(new ImageLoader());
@@ -56,26 +52,5 @@ public class App extends Application {
     public void onTerminate() {
         super.onTerminate();
         SugarContext.terminate();
-    }
-    public class AppBlockCanaryContext extends BlockCanaryContext {
-        // override to provide context like app qualifier, uid, network type, block threshold, log save path
-
-        // this is default block threshold, you can set it by phone's performance
-        @Override
-        public int getConfigBlockThreshold() {
-            return 500;
-        }
-
-        // if set true, notification will be shown, else only write log file
-        @Override
-        public boolean isNeedDisplay() {
-            return true;
-        }
-
-        // path to save log file
-        @Override
-        public String getLogPath() {
-            return "/blockcanary/performance";
-        }
     }
 }
