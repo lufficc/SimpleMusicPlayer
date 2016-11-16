@@ -3,6 +3,7 @@ package com.lcc.imusic.ui.home;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,19 +14,15 @@ import com.lcc.imusic.adapter.LoadMoreAdapter;
 import com.lcc.imusic.adapter.OnItemClickListener;
 import com.lcc.imusic.adapter.SimpleMusicListAdapter;
 import com.lcc.imusic.base.fragment.AttachFragment;
-import com.lcc.imusic.bean.Msg;
 import com.lcc.imusic.bean.MusicItem;
-import com.lcc.imusic.bean.SongsBean;
-import com.lcc.imusic.manager.NetManager_;
-import com.lcc.imusic.model.RemoteMusicProvider;
+import com.lcc.imusic.data.music.SongsDataSource;
+import com.lcc.imusic.data.music.SongsRepository;
+import com.lcc.imusic.wiget.DefaultItemDecoration;
 import com.lufficc.stateLayout.StateLayout;
 
 import java.util.List;
 
 import butterknife.BindView;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by lcc_luffy on 2016/3/8.
@@ -51,7 +48,11 @@ public class RemoteMusicFragment extends AttachFragment implements SwipeRefreshL
         refreshLayout.setOnRefreshListener(this);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-
+        recyclerView.addItemDecoration(new DefaultItemDecoration(
+                ContextCompat.getColor(getContext(), R.color.icon_enabled),
+                ContextCompat.getColor(getContext(), R.color.divider),
+                getResources().getDimensionPixelSize(R.dimen.activity_vertical_margin)
+        ));
         adapter = new SimpleMusicListAdapter();
         recyclerView.setAdapter(adapter);
         adapter.setOnItemClickListener(new OnItemClickListener() {
@@ -89,43 +90,35 @@ public class RemoteMusicFragment extends AttachFragment implements SwipeRefreshL
     public void getData(final int pageNum) {
         if (adapter.getItemCount() == 0)
             stateLayout.showProgressView();
-        NetManager_.API().songs(pageNum).enqueue(new Callback<Msg<SongsBean>>() {
+        SongsRepository.getInstance().getSongs(pageNum, new SongsDataSource.LoadSongsCallback() {
             @Override
-            public void onResponse(Call<Msg<SongsBean>> call, Response<Msg<SongsBean>> response) {
-                SongsBean songsBean = response.body().Result;
+            public void onLoaded(List<MusicItem> musicItems) {
                 refreshLayout.setRefreshing(false);
-                if (songsBean != null) {
-                    stateLayout.showContentView();
-                    List<MusicItem> list = RemoteMusicProvider.m2l(songsBean);
-                    if (pageNum == 1) {
-                        adapter.canLoadMore();
-                        adapter.setData(list);
+                if (pageNum == 1) {
+                    adapter.canLoadMore();
+                    adapter.setData(musicItems);
+                } else {
+                    if (musicItems.isEmpty()) {
+                        adapter.noMoreData();
                     } else {
-                        if (list.isEmpty()) {
-                            adapter.noMoreData();
-                        } else {
-                            adapter.addData(list);
-                        }
-                    }
-                    if (adapter.isDataEmpty()) {
-                        stateLayout.showEmptyView();
-                    } else {
-                        stateLayout.showContentView();
+                        adapter.addData(musicItems);
                     }
                 }
-
+                if (adapter.isDataEmpty()) {
+                    stateLayout.showEmptyView();
+                } else {
+                    stateLayout.showContentView();
+                }
             }
 
             @Override
-            public void onFailure(Call<Msg<SongsBean>> call, Throwable t) {
+            public void onFailed(String msg) {
                 if (adapter.isDataEmpty()) {
                     stateLayout.showErrorView("网络出错");
                 }
                 refreshLayout.setRefreshing(false);
             }
         });
-
-
     }
 
     @Override

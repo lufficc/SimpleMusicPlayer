@@ -1,14 +1,13 @@
 package com.lcc.imusic.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.lcc.imusic.R;
-import com.lcc.imusic.bean.MusicNews;
+import com.lcc.imusic.bean.ActivityBean;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,7 +15,7 @@ import butterknife.ButterKnife;
 /**
  * Created by lcc_luffy on 2016/3/23.
  */
-public class MusicNewsAdapter extends SimpleAdapter<MusicNewsAdapter.Holder, MusicNews> {
+public class MusicNewsAdapter extends SimpleAdapter<MusicNewsAdapter.Holder, ActivityBean> {
 
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -31,9 +30,6 @@ public class MusicNewsAdapter extends SimpleAdapter<MusicNewsAdapter.Holder, Mus
 
 
     class Holder extends RecyclerView.ViewHolder {
-        @BindView(R.id.musicNews_pic)
-        public ImageView picture;
-
         @BindView(R.id.musicNews_title)
         public TextView title;
 
@@ -45,13 +41,10 @@ public class MusicNewsAdapter extends SimpleAdapter<MusicNewsAdapter.Holder, Mus
             ButterKnife.bind(this, itemView);
         }
 
-        void bind(MusicNews musicNews) {
-            Glide.with(itemView.getContext())
-                    .load(musicNews.picture)
-                    .into(picture);
-
+        void bind(ActivityBean musicNews) {
             title.setText(musicNews.title);
-            description.setText(musicNews.description);
+
+            description.setText(Html.fromHtml(musicNews.content));
         }
     }
 }

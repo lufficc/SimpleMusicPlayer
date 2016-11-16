@@ -6,6 +6,7 @@ import com.lcc.imusic.bean.CollectedSongs;
 import com.lcc.imusic.bean.CommentBean;
 import com.lcc.imusic.bean.LoginBean;
 import com.lcc.imusic.bean.Msg;
+import com.lcc.imusic.bean.MusicActivity;
 import com.lcc.imusic.bean.MusicianItem;
 import com.lcc.imusic.bean.MusiciansBean;
 import com.lcc.imusic.bean.SongsBean;
@@ -120,4 +121,7 @@ public interface MusicApi {
     Call<Msg<TopicReply>> topicReplies(@Query("topicid") long topicId,
                                        @Query("pageNum") int pageNum
     );
+
+    @GET("notice/activity")
+    Call<MusicActivity> activities();
 }
