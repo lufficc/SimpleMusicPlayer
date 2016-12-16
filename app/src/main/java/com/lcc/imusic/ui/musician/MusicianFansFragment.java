@@ -79,11 +79,7 @@ public class MusicianFansFragment extends AttachFragment implements OnItemLongCl
                 publishTopic();
             }
         });
-        recyclerView.addItemDecoration(new DefaultItemDecoration(
-                ContextCompat.getColor(getContext(), R.color.icon_enabled),
-                ContextCompat.getColor(getContext(), R.color.divider),
-                0
-        ));
+
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

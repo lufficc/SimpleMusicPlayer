@@ -4,7 +4,6 @@ package com.lcc.imusic.ui.musician;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,7 +15,6 @@ import com.lcc.imusic.base.fragment.AttachFragment;
 import com.lcc.imusic.bean.Msg;
 import com.lcc.imusic.bean.TopTopic;
 import com.lcc.imusic.manager.NetManager_;
-import com.lcc.imusic.wiget.DefaultItemDecoration;
 import com.lufficc.lightadapter.LoadMoreFooterModel;
 import com.lufficc.stateLayout.StateLayout;
 
@@ -54,11 +52,7 @@ public class TopTopicFragment extends AttachFragment implements LoadMoreFooterMo
         adapter = new ClubAdapter();
         footerModel = adapter.getFooterModel();
         recyclerView.setAdapter(adapter);
-        recyclerView.addItemDecoration(new DefaultItemDecoration(
-                ContextCompat.getColor(getContext(), R.color.icon_enabled),
-                ContextCompat.getColor(getContext(), R.color.divider),
-                0
-        ));
+
         stateLayout.setEmptyAction(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
