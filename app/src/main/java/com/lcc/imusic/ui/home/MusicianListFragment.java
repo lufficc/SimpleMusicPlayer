@@ -3,6 +3,7 @@ package com.lcc.imusic.ui.home;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +18,7 @@ import com.lcc.imusic.bean.MusicianItem;
 import com.lcc.imusic.bean.MusiciansBean;
 import com.lcc.imusic.manager.NetManager_;
 import com.lcc.imusic.ui.musician.MusicianDetailActivity;
+import com.lcc.imusic.wiget.DefaultItemDecoration;
 import com.lufficc.stateLayout.StateLayout;
 
 import java.util.ArrayList;
@@ -54,6 +56,11 @@ public class MusicianListFragment extends AttachFragment implements LoadMoreAdap
         super.initialize(savedInstanceState);
         musicianRankAdapter = new MusicianRankAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView.addItemDecoration(new DefaultItemDecoration(
+                ContextCompat.getColor(getContext(), R.color.icon_enabled),
+                ContextCompat.getColor(getContext(), R.color.divider),
+                0
+        ));
         recyclerView.setAdapter(musicianRankAdapter);
         musicianRankAdapter.setLoadMoreListener(this);
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

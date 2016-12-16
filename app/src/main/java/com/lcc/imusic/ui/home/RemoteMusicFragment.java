@@ -51,7 +51,7 @@ public class RemoteMusicFragment extends AttachFragment implements SwipeRefreshL
         recyclerView.addItemDecoration(new DefaultItemDecoration(
                 ContextCompat.getColor(getContext(), R.color.icon_enabled),
                 ContextCompat.getColor(getContext(), R.color.divider),
-                getResources().getDimensionPixelSize(R.dimen.activity_vertical_margin)
+                0
         ));
         adapter = new SimpleMusicListAdapter();
         recyclerView.setAdapter(adapter);
@@ -95,6 +95,8 @@ public class RemoteMusicFragment extends AttachFragment implements SwipeRefreshL
             public void onLoaded(List<MusicItem> musicItems) {
                 refreshLayout.setRefreshing(false);
                 if (pageNum == 1) {
+                    if (musicItems.isEmpty())
+                        adapter.noMoreData();
                     adapter.canLoadMore();
                     adapter.setData(musicItems);
                 } else {

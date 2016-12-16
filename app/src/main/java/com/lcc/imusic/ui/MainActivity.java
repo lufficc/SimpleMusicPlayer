@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,7 +26,7 @@ import com.lcc.imusic.service.DownloadService;
 import com.lcc.imusic.service.MusicPlayService;
 import com.lcc.imusic.ui.home.MusicNewsFragment;
 import com.lcc.imusic.ui.home.MusicianListFragment;
-import com.lcc.imusic.ui.home.RemoteMusicFragment;
+import com.lcc.imusic.ui.musician.TopTopicFragment;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
@@ -59,13 +60,14 @@ public class MainActivity extends PlayBarActivity implements AccountDelegate.Acc
         if (UserManager.isLogin()) {
             accountDelegate.setAvatar(UserManager.avatar());
             accountDelegate.setUsername(UserManager.username());
+            Log.i("main",UserManager.token());
         }
     }
 
     private void init() {
         actionBar.setDisplayShowTitleEnabled(false);
         FragmentAdapter adapter = new FragmentAdapter(getSupportFragmentManager(),
-                new MusicianListFragment(), new RemoteMusicFragment(), new MusicNewsFragment());
+                new MusicianListFragment(), new TopTopicFragment(), new MusicNewsFragment());
         viewPager.setAdapter(adapter);
         actionBarButtons.get(0).setChecked(true);
         viewPager.addOnPageChangeListener(this);

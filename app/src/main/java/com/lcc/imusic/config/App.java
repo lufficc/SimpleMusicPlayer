@@ -11,7 +11,6 @@ import com.lcc.imusic.service.MusicPlayService;
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader;
 import com.mikepenz.materialdrawer.util.DrawerImageLoader;
 import com.orhanobut.logger.Logger;
-import com.orm.SugarContext;
 
 /**
  * Created by lcc_luffy on 2016/3/5.
@@ -23,7 +22,6 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        SugarContext.init(this);
 
         app = this;
         Logger.init("main");
@@ -48,9 +46,4 @@ public class App extends Application {
         }
     }
 
-    @Override
-    public void onTerminate() {
-        super.onTerminate();
-        SugarContext.terminate();
-    }
 }

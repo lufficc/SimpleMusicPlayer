@@ -4,7 +4,6 @@ package com.lcc.imusic.ui.musician;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,10 +12,9 @@ import android.view.View;
 
 import com.lcc.imusic.R;
 import com.lcc.imusic.adapter.ClubAdapter;
-import com.lcc.imusic.adapter.OnItemLongClickListener;
 import com.lcc.imusic.base.fragment.AttachFragment;
-import com.lcc.imusic.bean.Club;
 import com.lcc.imusic.bean.Msg;
+import com.lcc.imusic.bean.TopTopic;
 import com.lcc.imusic.manager.NetManager_;
 import com.lcc.imusic.wiget.DefaultItemDecoration;
 import com.lufficc.lightadapter.LoadMoreFooterModel;
@@ -31,8 +29,7 @@ import retrofit2.Response;
 /**
  * Created by lcc_luffy on 2016/3/8.
  */
-public class MusicianFansFragment extends AttachFragment implements OnItemLongClickListener, LoadMoreFooterModel.LoadMoreListener
-{
+public class TopTopicFragment extends AttachFragment implements LoadMoreFooterModel.LoadMoreListener {
 
     @BindView(R.id.stateLayout)
     StateLayout stateLayout;
@@ -44,13 +41,9 @@ public class MusicianFansFragment extends AttachFragment implements OnItemLongCl
     SwipeRefreshLayout refreshLayout;
 
     ClubAdapter adapter;
-
     LoadMoreFooterModel footerModel;
 
-    @BindView(R.id.add_topic)
-    FloatingActionButton add_topic;
 
-    public long musicianId;
     private int currentPage = 1;
 
     @Override
@@ -61,29 +54,19 @@ public class MusicianFansFragment extends AttachFragment implements OnItemLongCl
         adapter = new ClubAdapter();
         footerModel = adapter.getFooterModel();
         recyclerView.setAdapter(adapter);
-        add_topic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                publishTopic();
-            }
-        });
+        recyclerView.addItemDecoration(new DefaultItemDecoration(
+                ContextCompat.getColor(getContext(), R.color.icon_enabled),
+                ContextCompat.getColor(getContext(), R.color.divider),
+                0
+        ));
         stateLayout.setEmptyAction(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getData(1);
             }
         });
-        stateLayout.setEmptyAction(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                publishTopic();
-            }
-        });
-        recyclerView.addItemDecoration(new DefaultItemDecoration(
-                ContextCompat.getColor(getContext(), R.color.icon_enabled),
-                ContextCompat.getColor(getContext(), R.color.divider),
-                0
-        ));
+
+
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -92,17 +75,14 @@ public class MusicianFansFragment extends AttachFragment implements OnItemLongCl
             }
         });
 
+
+
         footerModel.setLoadMoreListener(this);
         getData(1);
     }
 
 
-    private void publishTopic() {
-        Intent intent = new Intent(context, PublishTopicActivity.class);
-        intent.putExtra("musicianId", musicianId);
-        intent.putExtra("type", PublishTopicActivity.TYPE_PUBLISH);
-        startActivityForResult(intent, 1234);
-    }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -116,19 +96,19 @@ public class MusicianFansFragment extends AttachFragment implements OnItemLongCl
     private void getData(final int pageNum) {
         if (adapter.isDataEmpty())
             stateLayout.showProgressView();
-        NetManager_.API().club(musicianId, pageNum).enqueue(new Callback<Msg<Club>>() {
+        NetManager_.API().topTopic(pageNum).enqueue(new Callback<Msg<TopTopic>>() {
             @Override
-            public void onResponse(Call<Msg<Club>> call, Response<Msg<Club>> response) {
-                Club club = response.body().Result;
+            public void onResponse(Call<Msg<TopTopic>> call, Response<Msg<TopTopic>> response) {
+                TopTopic topTopic = response.body().Result;
                 refreshLayout.setRefreshing(false);
-                if (club != null) {
+                if (topTopic != null) {
                     if (pageNum == 1) {
-                        adapter.setData(club.list);
+                        adapter.setData(topTopic.list);
                     } else {
-                        if (club.list.isEmpty()) {
+                        if (topTopic.list.isEmpty()) {
                             footerModel.noMoreData();
                         } else {
-                            adapter.addData(club.list);
+                            adapter.addData(topTopic.list);
                         }
                     }
                 }
@@ -141,7 +121,7 @@ public class MusicianFansFragment extends AttachFragment implements OnItemLongCl
             }
 
             @Override
-            public void onFailure(Call<Msg<Club>> call, Throwable t) {
+            public void onFailure(Call<Msg<TopTopic>> call, Throwable t) {
                 refreshLayout.setRefreshing(false);
                 if (adapter.isDataEmpty()) {
                     stateLayout.showErrorView(t.toString());
@@ -165,7 +145,7 @@ public class MusicianFansFragment extends AttachFragment implements OnItemLongCl
 
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_musician_fans;
+        return R.layout.fragment_top_topic;
     }
 
     @Override
@@ -179,8 +159,5 @@ public class MusicianFansFragment extends AttachFragment implements OnItemLongCl
         getData(currentPage);
     }
 
-    @Override
-    public boolean onItemLongClick(final int position) {
-        return true;
-    }
+
 }

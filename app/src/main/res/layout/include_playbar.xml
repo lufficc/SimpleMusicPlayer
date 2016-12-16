@@ -71,6 +71,7 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:tint="?attr/colorPrimary"
                 android:id="@+id/playBar_playList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -82,12 +83,12 @@
                 android:id="@+id/playBar_playToggle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:background="@drawable/draw_playbar_play_toggle"
                 android:button="@null"
                 android:contentDescription="@null" />
 
             <ImageView
+                android:tint="?attr/colorPrimary"
                 android:id="@+id/playBar_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

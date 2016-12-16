@@ -10,8 +10,8 @@ import com.lcc.imusic.R;
 import com.lcc.imusic.adapter.LoadMoreAdapter;
 import com.lcc.imusic.adapter.TopicReplyAdapter;
 import com.lcc.imusic.base.activity.BaseActivity;
-import com.lcc.imusic.bean.Club;
 import com.lcc.imusic.bean.Msg;
+import com.lcc.imusic.bean.TopicItem;
 import com.lcc.imusic.bean.TopicReply;
 import com.lcc.imusic.manager.NetManager_;
 import com.lcc.imusic.utils.Json;
@@ -25,9 +25,6 @@ import retrofit2.Response;
 
 public class TopicActivity extends BaseActivity implements LoadMoreAdapter.LoadMoreListener,
         SwipeRefreshLayout.OnRefreshListener {
-
-
-
 
     @BindView(R.id.stateLayout)
     StateLayout stateLayout;
@@ -49,7 +46,7 @@ public class TopicActivity extends BaseActivity implements LoadMoreAdapter.LoadM
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Club.TopicItem topicItem = (Club.TopicItem) getIntent().getSerializableExtra("topic");
+        TopicItem topicItem = (TopicItem) getIntent().getSerializableExtra("topic");
         topicId = topicItem.id;
         setTitle(topicItem.title);
 
@@ -69,7 +66,7 @@ public class TopicActivity extends BaseActivity implements LoadMoreAdapter.LoadM
         getTopicReplies(1);
     }
 
-    private void bind(Club.TopicItem topicItem) {
+    private void bind(TopicItem topicItem) {
 
     }
 

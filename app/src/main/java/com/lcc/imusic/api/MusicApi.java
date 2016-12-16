@@ -10,6 +10,8 @@ import com.lcc.imusic.bean.MusicActivity;
 import com.lcc.imusic.bean.MusicianItem;
 import com.lcc.imusic.bean.MusiciansBean;
 import com.lcc.imusic.bean.SongsBean;
+import com.lcc.imusic.bean.TopTopic;
+import com.lcc.imusic.bean.TopicItem;
 import com.lcc.imusic.bean.TopicReply;
 
 import okhttp3.MultipartBody;
@@ -97,8 +99,11 @@ public interface MusicApi {
     @GET("club")
     Call<Msg<Club>> club(@Query("musicianid") long musicianId, @Query("pageNum") int pageNum);
 
+    @GET("toptopic")
+    Call<Msg<TopTopic>> topTopic(@Query("pageNum") int pageNum);
+
     @GET("topic")
-    Call<Msg<Club.TopicItem>> topic(@Query("id") long topicId);
+    Call<Msg<TopicItem>> topic(@Query("id") long topicId);
 
     @FormUrlEncoded
     @POST("topic")

@@ -104,11 +104,19 @@
                     android:inputType="text" />
             </android.support.design.widget.TextInputLayout>
 
-            <Button
+            <com.lcc.imusic.wiget.StateButton
                 android:id="@+id/register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="注册" />
+                android:padding="10dp"
+                android:text="注册"
+                app:normalBackgroundColor="@color/colorPrimary"
+                app:normalTextColor="@android:color/white"
+                app:pressedBackgroundColor="@color/colorPrimaryDark"
+                app:pressedTextColor="@android:color/white"
+                app:radius="5dp"
+                app:round="true" />
+
         </LinearLayout>
 
     </ScrollView>

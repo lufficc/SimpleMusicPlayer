@@ -14,7 +14,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.lcc.imusic.R;
 import com.lcc.imusic.wiget.NeedleImageView;
 import com.lcc.imusic.wiget.RotateImageView;
@@ -192,11 +191,8 @@ public class MusicPlayerView extends FrameLayout implements CompoundButton.OnChe
     }
 
     public void setCover(final String cover_url) {
-
         Glide.with(getContext())
                 .load(cover_url)
-                .placeholder(R.mipmap.placeholder_disk_play_song)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(cover);
 
     }

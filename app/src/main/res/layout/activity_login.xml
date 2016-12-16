@@ -59,11 +59,18 @@
                 android:inputType="textPassword" />
         </android.support.design.widget.TextInputLayout>
 
-        <Button
+        <com.lcc.imusic.wiget.StateButton
             android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="登录" />
+            android:padding="10dp"
+            android:text="登录"
+            app:normalBackgroundColor="@color/colorPrimary"
+            app:normalTextColor="@android:color/white"
+            app:pressedBackgroundColor="@color/colorPrimaryDark"
+            app:pressedTextColor="@android:color/white"
+            app:radius="5dp"
+            app:round="true" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -86,5 +93,45 @@
                 android:padding="5dp"
                 android:text="忘记密码" />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="2dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:padding="5dp"
+                android:src="@mipmap/ic_qq"
+                android:tint="@color/colorPrimaryDark" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="2dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:padding="5dp"
+                android:src="@mipmap/ic_wechat"
+                android:tint="@color/colorPrimaryDark" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="2dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:padding="5dp"
+                android:src="@mipmap/ic_weibo"
+                android:tint="@color/colorPrimaryDark" />
+        </LinearLayout>
     </LinearLayout>
+
+
 </android.support.design.widget.CoordinatorLayout>
