@@ -97,6 +97,7 @@ public class TopTopicFragment extends AttachFragment implements LoadMoreFooterMo
                 refreshLayout.setRefreshing(false);
                 if (topTopic != null) {
                     if (pageNum == 1) {
+                        footerModel.canLoadMore();
                         adapter.setData(topTopic.list);
                     } else {
                         if (topTopic.list.isEmpty()) {

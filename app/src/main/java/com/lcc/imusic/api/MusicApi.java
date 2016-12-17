@@ -127,6 +127,11 @@ public interface MusicApi {
                                        @Query("pageNum") int pageNum
     );
 
+    @POST("topic/reply")
+    Call<Msg<JsonObject>> replyToTopic(@Query("topicid") long topicId,
+                               @Query("content") String content
+    );
+
     @GET("notice/activity")
     Call<MusicActivity> activities();
 }

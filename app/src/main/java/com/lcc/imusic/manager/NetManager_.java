@@ -1,6 +1,8 @@
 package com.lcc.imusic.manager;
 
 
+import android.util.Log;
+
 import com.lcc.imusic.api.MusicApi;
 
 import java.io.IOException;
@@ -60,6 +62,7 @@ public class NetManager_ {
         public Response intercept(Chain chain) throws IOException {
             Request originRequest = chain.request();
             String token = UserManager.token();
+            Log.i("main", "add token " + token);
             if (token != null) {
                 originRequest = originRequest
                         .newBuilder()

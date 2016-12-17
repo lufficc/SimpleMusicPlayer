@@ -42,4 +42,5 @@
                 android:layout_height="match_parent" />
         </android.support.v4.widget.SwipeRefreshLayout>
     </com.lufficc.stateLayout.StateLayout>
+    <include layout="@layout/include_comment_reply"/>
 </android.support.design.widget.CoordinatorLayout>
