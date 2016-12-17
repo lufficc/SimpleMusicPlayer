@@ -2,18 +2,15 @@ package com.lcc.imusic.ui.musician;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 
-import com.bumptech.glide.Glide;
 import com.lcc.imusic.R;
-import com.lcc.imusic.adapter.MusicianDetailAdapter;
 import com.lcc.imusic.base.activity.UserActivity;
 import com.lcc.imusic.bean.Msg;
 import com.lcc.imusic.bean.MusicianItem;
 import com.lcc.imusic.manager.NetManager_;
 
-import butterknife.BindView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -22,13 +19,6 @@ import retrofit2.Response;
  * Created by lcc_luffy on 2016/3/23.
  */
 public class MusicianDetailActivity extends UserActivity {
-
-    @BindView(R.id.viewPage)
-    ViewPager viewPager;
-
-    @BindView(R.id.tabLayout)
-    TabLayout tabLayout;
-
     private long id;
 
     private String avatar;
@@ -44,14 +34,19 @@ public class MusicianDetailActivity extends UserActivity {
         setAvatar(avatar);
         setUsername(name);
 
-        MusicianDetailAdapter musicDetailAdapter = new MusicianDetailAdapter(getSupportFragmentManager(), id);
-        viewPager.setAdapter(musicDetailAdapter);
-        tabLayout.setupWithViewPager(viewPager);
+        MusicianFansFragment musicianFansFragment = new MusicianFansFragment();
+        musicianFansFragment.musicianId = id;
 
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.add(R.id.container, musicianFansFragment, "musicianFansFragment");
+        transaction.commit();
         initData();
     }
 
     private void initData() {
+        setAvatar(avatar);
+        setUsername(name);
         NetManager_.API().musician(id)
                 .enqueue(new Callback<Msg<MusicianItem>>() {
                     @Override
@@ -60,7 +55,7 @@ public class MusicianDetailActivity extends UserActivity {
                         if (musicianItem != null) {
                             setAvatar(NetManager_.DOMAIN + musicianItem.avatar);
                             setUsername(musicianItem.nickname);
-                            Glide.with(MusicianDetailActivity.this).load(NetManager_.DOMAIN + musicianItem.avatar).into(user_bg);
+                            //Glide.with(MusicianDetailActivity.this).load(NetManager_.DOMAIN + musicianItem.avatar).into(user_bg);
                         }
                     }
 

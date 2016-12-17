@@ -43,9 +43,7 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/avatar"
                     android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    app:civ_border_color="#eeffffff"
-                    app:civ_border_width="1dp" />
+                    android:layout_height="90dp" />
 
                 <TextView
                     android:id="@+id/username"
@@ -57,10 +55,10 @@
                     android:shadowDx="3"
                     android:shadowDy="3"
                     android:shadowRadius="1"
-                    tools:text="username"
                     android:textColor="#FFF"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:text="username" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -80,8 +78,8 @@
                         android:shadowDx="3"
                         android:shadowDy="3"
                         android:shadowRadius="1"
-                        tools:text="歌曲\n666"
-                        android:textColor="#FFF" />
+                        android:textColor="#FFF"
+                        tools:text="歌曲\n666" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -93,28 +91,17 @@
                         android:shadowDx="3"
                         android:shadowDy="3"
                         android:shadowRadius="1"
-                        tools:text="粉丝\n91154"
-                        android:textColor="#FFF" />
+                        android:textColor="#FFF"
+                        tools:text="粉丝\n91154" />
                 </LinearLayout>
             </LinearLayout>
 
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="36dp" />
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewPage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 </android.support.design.widget.CoordinatorLayout>

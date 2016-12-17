@@ -53,7 +53,7 @@ public abstract class UserActivity extends MusicPlayCallActivity {
 
 
     public void setAvatar(String avatar) {
-        Glide.with(this).load(avatar).into(avatar_iv);
+        Glide.with(this).load(avatar).placeholder(R.mipmap.user).error(R.mipmap.user).into(avatar_iv);
     }
 
     public void setUsername(String username) {

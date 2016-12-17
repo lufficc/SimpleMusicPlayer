@@ -16,7 +16,7 @@ import android.widget.RadioGroup;
 import com.lcc.imusic.R;
 import com.lcc.imusic.adapter.FragmentAdapter;
 import com.lcc.imusic.base.activity.AccountDelegate;
-import com.lcc.imusic.base.activity.PlayBarActivity;
+import com.lcc.imusic.base.activity.BaseActivity;
 import com.lcc.imusic.bean.DlBean;
 import com.lcc.imusic.bean.MusicItem;
 import com.lcc.imusic.manager.UserManager;
@@ -39,7 +39,7 @@ import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.OnCheckedChanged;
 
-public class MainActivity extends PlayBarActivity implements AccountDelegate.AccountListener, ViewPager.OnPageChangeListener {
+public class MainActivity extends BaseActivity implements AccountDelegate.AccountListener, ViewPager.OnPageChangeListener {
     @BindView(R.id.actionbar_buttons)
     RadioGroup actionBarButtonGroup;
 
@@ -148,14 +148,6 @@ public class MainActivity extends PlayBarActivity implements AccountDelegate.Acc
             case 4:
                 finish();
                 stopService(new Intent(this, MusicPlayService.class));
-                break;
-            case 5:
-                if (isBind())
-                    musicServiceBind.volumeDown();
-                break;
-            case 6:
-                if (isBind())
-                    musicServiceBind.volumeUp();
                 break;
             case 7:
                 if (!CurrentMusicProviderImpl.getMusicProvider().provideMusics().isEmpty()) {
