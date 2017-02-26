@@ -55,7 +55,7 @@ public class FooterBehavior extends CoordinatorLayout.Behavior<View> {
                         isHiding = false;
                         isHided = true;
                         isShown = false;
-                        view.setVisibility(View.GONE);
+                        isShowing = false;
                     }
                 }).start();
     }
@@ -75,6 +75,7 @@ public class FooterBehavior extends CoordinatorLayout.Behavior<View> {
                         isShowing = false;
                         isShown = true;
                         isHided = false;
+                        isHiding = false;
                     }
                 }).start();
     }

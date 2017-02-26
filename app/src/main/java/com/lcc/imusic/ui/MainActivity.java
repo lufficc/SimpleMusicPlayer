@@ -60,7 +60,7 @@ public class MainActivity extends BaseActivity implements AccountDelegate.Accoun
         if (UserManager.isLogin()) {
             accountDelegate.setAvatar(UserManager.avatar());
             accountDelegate.setUsername(UserManager.username());
-            Log.i("main",UserManager.token());
+            Log.i("main", UserManager.token());
         }
     }
 
@@ -99,7 +99,6 @@ public class MainActivity extends BaseActivity implements AccountDelegate.Accoun
     public List<IDrawerItem> onCreateMenuItem() {
         List<IDrawerItem> list = new ArrayList<>();
         list.add(new PrimaryDrawerItem().withName("Home").withIcon(FontAwesome.Icon.faw_home));
-        list.add(new PrimaryDrawerItem().withName("下载管理").withIcon(FontAwesome.Icon.faw_cloud_download));
         list.add(new PrimaryDrawerItem().withName("退出登录").withIcon(FontAwesome.Icon.faw_sign_out));
         list.add(new PrimaryDrawerItem().withName("退出").withIcon(FontAwesome.Icon.faw_sign_out));
 
@@ -129,15 +128,17 @@ public class MainActivity extends BaseActivity implements AccountDelegate.Accoun
         switch (position) {
             case 1:
                 break;
-            case 2:
+            /*case 2:
                 startActivity(new Intent(this, DownLoadActivity.class));
-                break;
-            case 3:
+                break;*/
+            case 2:
                 Snackbar.make(toolbar, "确定退出吗？", Snackbar.LENGTH_LONG).setAction("确定", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (UserManager.logout()) {
                             accountDelegate.setUsername("点击登录");
+                            finish();
+                            startActivity(new Intent(MainActivity.this, LoginActivity.class));
                             toast("已退出登录");
                         } else {
                             toast("退出登录失败");
@@ -145,7 +146,7 @@ public class MainActivity extends BaseActivity implements AccountDelegate.Accoun
                     }
                 }).show();
                 break;
-            case 4:
+            case 3:
                 finish();
                 stopService(new Intent(this, MusicPlayService.class));
                 break;
@@ -184,10 +185,8 @@ public class MainActivity extends BaseActivity implements AccountDelegate.Accoun
     }
 
     @OnCheckedChanged({R.id.actionbar_music, R.id.actionbar_friends, R.id.actionbar_discover})
-    public void onActionbarCheck(RadioButton button, boolean check)
-    {
-        if (check)
-        {
+    public void onActionbarCheck(RadioButton button, boolean check) {
+        if (check) {
             int index = actionBarButtons.indexOf(button);
             viewPager.setCurrentItem(index);
         }
